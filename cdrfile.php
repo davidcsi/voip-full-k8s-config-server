@@ -1,7 +1,7 @@
 <?php
 
     if(!empty($_POST['billsec']))
-    
+    {
         $uniqueid = uniqid();
 
         $caller_id_number   = $_POST['FromNumber'];

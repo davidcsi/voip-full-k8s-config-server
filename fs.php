@@ -40,6 +40,14 @@
                 </condition>
             </extension>
 
+            <extension name="user-to-user">
+                <condition field="${destination_number}" expression="^7[0-9]{8}$">
+                    <action application="set" data="application=USER-TO-USER"/>
+                    <action application="bridge" data="sofia/external/721113210@sip-proxy.service.consul:5066"/>
+                    <action application="hangup"/>
+                </condition>
+            </extension>
+
             <extension name="hangup">
                 <condition field="destination_number" expression="^hangup$">
                     <action application="hangup" date="NORMAL_CLEARING"/>

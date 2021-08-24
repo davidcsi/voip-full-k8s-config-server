@@ -1,7 +1,17 @@
 <?php
 
-    if(!empty($_POST['billsec']))
+    if(!empty($_POST['CampaignId']))
     {
+        require 'aws-autoloader.php';
+
+        use Aws\S3\S3Client;
+
+        $client = S3Client::factory( array(
+            'region' => 'eu-west-1',
+            'version' => 'latest',
+            "scheme" => "http"
+        ));
+
         $uniqueid = uniqid();
 
         $caller_id_number   = $_POST['FromNumber'];
